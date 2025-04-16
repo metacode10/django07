@@ -11,10 +11,19 @@
         <a href="{% url 'accountapp:login' %}?next={{ request.path }}">
             <span>login</span>
         </a>
+
+        <a href="{% url 'accountapp:create' %}?next={{ request.path }}">
+            <span>SignUp</span>
+        </a>
+
         {% else %}
 
         <a href="{% url 'accountapp:detail' pk=user.pk %}">
             <span>MyPage</span>
+        </a>
+
+        <a href="{% url 'accountapp:delete' pk=user.pk %}">
+            <span>delete</span>
         </a>
 
         <form method="post" action="{% url 'accountapp:logout' %}?next{{ request.path }}" style="display: inline;">
