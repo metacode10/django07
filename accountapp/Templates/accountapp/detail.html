@@ -12,7 +12,7 @@
             </h2>
 
             {% if target_user == user %}
-            <a href="{% url 'accountapp:update' pk=user.pk %} ">
+            <a href="{% url 'accountapp:update' pk=target_user.pk %} ">
                 <p>
                     Change Info
                 </p>
