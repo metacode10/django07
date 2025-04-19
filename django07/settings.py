@@ -14,7 +14,7 @@ from pathlib import Path
 import environ
 import os
 
-from django.conf.global_settings import STATIC_ROOT
+from django.conf.global_settings import STATIC_ROOT, MEDIA_URL
 from django.urls import reverse_lazy
 
 env = environ.Env(
@@ -144,3 +144,8 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = reverse_lazy('accountapp:hello_world')
 LOGOUT_REDIRECT_URL = reverse_lazy('accountapp:login')
 
+
+MEDIA_URL = '/media/'
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
