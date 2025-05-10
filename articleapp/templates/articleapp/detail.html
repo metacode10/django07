@@ -7,19 +7,25 @@
             <h1>
                 {{ target_article.title }}
             </h1>
-
-            <img src="{{ target_article.image.url }}" alt="">
+            <h5>
+                {{ target_article.writer.profile.nickname }}
+            </h5>
+            <hr>
+            <img style="width:100%; border-radius: 1rem; margein:2rem 0;" src="{{ target_article.image.url }}" alt="">
             <p>
                 {{ target_article.content }}
             </p>
 
-            <a href="{% url 'articleapp:update' pk=target_article.pk %}">
-                <p>update article</p>
+            {% if target_article.writer  == user %}
+            <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-primary rounded-pill col-3">
+                update
             </a>
 
-            <a href="{% url 'articleapp:delete' pk=target_article.pk %}">
-                <p>delete article</p>
+            <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="btn btn-danger rounded-pill col-3">
+                delete
             </a>
+            {% endif %}
+            <hr>
 
         </div>
     </div>
